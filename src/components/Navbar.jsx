@@ -7,6 +7,7 @@ export default function Navbar({ isLoggedIn = false }) {
         <li><a href="/">Home</a></li>
         <li><a href="/terms">Terms</a></li>
         <li><a href="/submit">Submit a Term</a></li>
+        <li><a href="/professionals">Professionals</a></li>
       </ul>
 
       {isLoggedIn ? (
