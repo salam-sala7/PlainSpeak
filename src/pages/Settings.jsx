@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import SubscriptionPlans from '../components/SubscriptionPlans/SubscriptionPlans'
 import { useAuth } from '../features/auth/authContext'
 import { saveProfile } from '../features/profile/profile'
 import { useProfile } from '../features/profile/useProfile'
@@ -62,6 +63,7 @@ export default function Settings() {
         <label>Bio<textarea name="bio" defaultValue={result.profile.bio} maxLength={1000} /></label>
         <button disabled={Boolean(pending)}>{pending === 'save' ? 'Saving…' : 'Save profile'}</button>
       </form>}
+      {result?.profile && <SubscriptionPlans key={id} initialTier={result.profile.subscription_tier} />}
       {error && <p role="alert">{error}</p>}
       {notice && <p role="status">{notice}</p>}
       <p><button type="button" onClick={signOut} disabled={Boolean(pending)}>Log out</button></p>
