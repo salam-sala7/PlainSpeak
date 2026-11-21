@@ -63,7 +63,10 @@ export default function Settings() {
         <label>Bio<textarea name="bio" defaultValue={result.profile.bio} maxLength={1000} /></label>
         <button disabled={Boolean(pending)}>{pending === 'save' ? 'Saving…' : 'Save profile'}</button>
       </form>}
-      {result?.profile && <SubscriptionPlans key={id} initialTier={result.profile.subscription_tier} />}
+      {result?.profile && <>
+        <h2 className="mt-6 text-xl font-bold">Demo subscription</h2>
+        <SubscriptionPlans key={id} initialTier={result.profile.subscription_tier} />
+      </>}
       {error && <p role="alert">{error}</p>}
       {notice && <p role="status">{notice}</p>}
       <p><button type="button" onClick={signOut} disabled={Boolean(pending)}>Log out</button></p>

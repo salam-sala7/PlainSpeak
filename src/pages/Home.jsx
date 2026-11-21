@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SearchBar from '../components/SearchBar/SearchBar'
-import { filterTerms } from '../features/terms/terms'
+import { filterTerms, termColumns } from '../features/terms/terms'
 import TermCard from '../components/TermCard/TermCard'
 import { getSupabase } from '../lib/supabase'
 
@@ -19,7 +19,7 @@ export default function Home() {
     async function load() {
       try {
         const { data, error: queryError } = await getSupabase().from('terms')
-          .select('id, jargon, translation, analogy, category')
+          .select(termColumns)
           .order('created_at', { ascending: false })
           .order('id')
           .abortSignal(request.signal)
