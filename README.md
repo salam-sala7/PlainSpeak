@@ -8,7 +8,7 @@ Use Node.js 22. Run `npm ci`, copy `.env.example` to `.env.local`, then set `VIT
 
 ## Supabase
 
-Use a dedicated Free project. Run the scripts in `supabase/migrations/` in filename order, then run `supabase/seed.sql`. Keep the Email auth provider enabled. Keep database passwords and secret/service-role keys outside this repository and the frontend. Demo consultations support one optional PDF of up to 1 MB.
+Use a dedicated Free project. Run the scripts in `supabase/migrations/` in filename order, then run `supabase/seed.sql`. Keep the Email auth provider enabled. Keep database passwords and secret/service-role keys outside this repository and the frontend.
 
 For email confirmation, set the authentication Site URL to the Netlify production URL and add the local development URL to the redirect allow list when needed.
 

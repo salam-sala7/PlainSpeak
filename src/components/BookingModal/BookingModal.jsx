@@ -15,8 +15,7 @@ export default function BookingModal({ professional, clientId, onClose, onBooked
   async function submit(event) {
     event.preventDefault()
     if (pending) return
-    const fields = new FormData(event.currentTarget)
-    const date = new Date(fields.get('date'))
+    const date = new Date(new FormData(event.currentTarget).get('date'))
     if (!Number.isFinite(date.getTime()) || date <= new Date()) {
       setError('Choose a future date and time.')
       return
@@ -25,7 +24,7 @@ export default function BookingModal({ professional, clientId, onClose, onBooked
     setPending(true)
     setError('')
     try {
-      await bookConsultation(clientId, professional.id, date.toISOString(), fields.get('document'))
+      await bookConsultation(clientId, professional.id, date.toISOString())
     } catch (failure) {
       setError(failure.message)
       setPending(false)
@@ -39,11 +38,10 @@ export default function BookingModal({ professional, clientId, onClose, onBooked
       event.preventDefault()
       if (!pending) onClose()
     }}>
-      <h2 id="booking-title" className="mb-2 text-xl font-bold">Request time with {professional.name}</h2>
-      {professional.is_demo && <p className="mb-4">This is a demo listing. Use sample documents only.</p>}
+      <h2 id="booking-title">Request time with {professional.name}</h2>
+      {professional.is_demo && <p>This is a demo listing.</p>}
       <form onSubmit={submit}>
         <label>Preferred date and local time<input type="datetime-local" name="date" required /></label>
-        <label>Optional document (PDF, up to 1 MB)<input type="file" name="document" accept=".pdf,application/pdf" /></label>
         {error && <p role="alert">{error}</p>}
         <button disabled={pending}>{pending ? 'Saving…' : 'Send request'}</button>
         <button type="button" onClick={onClose} disabled={pending}>Cancel</button>

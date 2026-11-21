@@ -1,17 +1,20 @@
-import { Link, NavLink } from 'react-router-dom'
-
 export default function Navbar({ isLoggedIn = false }) {
   return (
-    <nav aria-label="Main navigation">
-      <Link to="/" className="navbar-logo">PlainSpeak</Link>
+    <nav>
+      <a href="/" className="navbar-logo">PlainSpeak</a>
+
       <ul>
-        <li><NavLink to="/" end>Home</NavLink></li>
-        <li><NavLink to="/terms">Terms</NavLink></li>
-        <li><NavLink to="/submit">Submit a Term</NavLink></li>
-        <li><NavLink to="/professionals">Professionals</NavLink></li>
-        <li><NavLink to="/pricing">Pricing</NavLink></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/submit">Submit a Term</a></li>
+        <li><a href="/professionals">Professionals</a></li>
       </ul>
-      {isLoggedIn ? <NavLink to="/profile">Profile</NavLink> : <NavLink to="/login">Login</NavLink>}
+
+      {isLoggedIn ? (
+        <a href="/profile">Profile</a>
+      ) : (
+        <a href="/login">Login</a>
+      )}
     </nav>
-  )
+  );
 }

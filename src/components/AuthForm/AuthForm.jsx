@@ -43,7 +43,7 @@ export default function AuthForm({ register = false }) {
   if (session) return <Navigate to={destination} replace />
 
   return (
-    <section className="auth-page">
+    <section>
       <h1>{register ? 'Create an account' : 'Log in'}</h1>
       <form onSubmit={submit}>
         {register && <label>Username<input name="username" maxLength={50} autoComplete="nickname" required /></label>}

@@ -39,7 +39,7 @@ export default function SubmitForm() {
 
   return (
     <form onSubmit={submit}>
-      <label>Legal term<textarea name="jargon" rows={2} maxLength={160} required /></label>
+      <label>Legal term<input name="jargon" maxLength={160} required /></label>
       <label>Plain-language meaning<textarea name="translation" maxLength={1500} required /></label>
       <label>Example or analogy<textarea name="analogy" maxLength={1500} /></label>
       <label>Category<select name="category" defaultValue="" required>
