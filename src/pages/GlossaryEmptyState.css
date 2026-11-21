@@ -1,0 +1,14 @@
+.glossary-empty {
+  display: grid;
+  justify-items: center;
+  gap: .5rem;
+  padding: 2.75rem 1rem;
+  border: 1px solid #dedfda;
+  border-radius: 1rem;
+  background: #fff;
+  color: #28384b;
+  text-align: center;
+}
+.glossary-empty svg { width: 1.5rem; color: #8797a3; }
+.glossary-empty h2 { margin: 0; color: inherit; font-size: 1rem; font-weight: 650; }
+.glossary-empty p { margin: 0; color: #596675; font-size: .875rem; }
