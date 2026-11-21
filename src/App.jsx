@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Navbar from './components/Navbar'
 import AuthProvider from './features/auth/AuthProvider'
 import { useAuth } from './features/auth/authContext'
@@ -19,7 +20,9 @@ function AppRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/terms" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/submit" element={<Submit />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/submit" element={<Submit />} />
+          </Route>
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
