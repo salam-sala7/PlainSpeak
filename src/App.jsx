@@ -11,7 +11,7 @@ import Profile from './pages/Profile'
 import Settings from './pages/Settings'
 import Login from './pages/Login'
 import Submit from './pages/Submit'
-import Register from './pages/Register'
+import SignUp from './pages/SignUp'
 import './App.css'
 
 function AppRoutes() {
@@ -33,7 +33,7 @@ function AppRoutes() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
           </Route>
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<SignUp />} />
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
       </main>
