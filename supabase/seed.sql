@@ -7,3 +7,9 @@ insert into public.terms (id, jargon, translation, analogy, category) values
   ('505798ef-178a-425a-bd2e-314142e9d3da', 'Security deposit', 'Money held to cover certain costs that may arise during a rental. The agreement and local rules determine when it can be used or returned.', 'Leaving a deposit when borrowing equipment.', 'Housing'),
   ('615f3948-df79-438a-aee6-e64baa3a45d0', 'Notice period', 'The amount of advance warning an agreement or rule calls for before a change takes effect.', 'Telling a roommate ahead of time when you plan to move out.', 'Housing')
 on conflict (id) do nothing;
+
+insert into public.professionals (id, name, specialty, is_demo) values
+  ('c7d74313-d5aa-4b74-aabb-9556a251daaa', 'Maya Reed', 'Contracts', true),
+  ('ca858c3a-48e9-45db-8707-1e681131ea63', 'Alex Rowan', 'Data privacy', true),
+  ('575ea2ed-a4df-4e00-ae60-08e231857fb6', 'Sam Ellis', 'Employment', true)
+on conflict (id) do nothing;
