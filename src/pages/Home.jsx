@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import TermCard from '../components/TermCard/TermCard'
 import { getSupabase } from '../lib/supabase'
 
 export default function Home() {
+  const { state } = useLocation()
   const [terms, setTerms] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -33,6 +35,7 @@ export default function Home() {
   return (
     <section>
       <h1>Legal terms in plain language</h1>
+      {state?.notice && <p role="status">{state.notice}</p>}
       <p>Browse community explanations and examples.</p>
       {loading && <p role="status">Loading terms…</p>}
       {error && <p role="alert">{error}</p>}
