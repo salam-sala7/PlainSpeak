@@ -46,6 +46,12 @@ export default function Home() {
       <SearchBar search={search} onSearch={setSearch} category={category} onCategory={setCategory} />
       {loading && <p role="status">Loading terms…</p>}
       {error && <p role="alert">{error}</p>}
+      {!loading && !error && results.length === 0 && (
+        <div className="empty-state" role="status">
+          <h2>{search.trim() || category ? 'No terms match' : 'No terms yet'}</h2>
+          <p>{search.trim() || category ? 'Try another word or choose a different category.' : 'Community submissions will appear here.'}</p>
+        </div>
+      )}
       <div className="term-grid">{results.map(term => <TermCard key={term.id} term={term} />)}</div>
     </section>
   )
