@@ -1,0 +1,37 @@
+.account-page {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100%, 66rem);
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  box-sizing: border-box;
+  background: #f7f7f2;
+  color: #28384b;
+  text-align: left;
+  color-scheme: light;
+}
+.account-page h1 { margin: .4rem 0 .65rem; color: inherit; font-size: clamp(2rem, 5vw, 2.7rem); }
+.account-page p { margin: 0; overflow-wrap: anywhere; }
+.account-page .account-eyebrow { color: #527189; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.account-page a { width: fit-content; color: #344d65; }
+.account-panel {
+  padding: clamp(1rem, 4vw, 1.5rem);
+  border: 1px solid #dedfda;
+  border-radius: 1rem;
+  background: #fff;
+}
+.account-panel h2 { margin: 0 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid #364656; color: inherit; font-size: 1rem; }
+.account-panel p + a { display: inline-block; margin-top: .75rem; }
+.account-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 1rem; }
+.account-form label { display: grid; gap: .4rem; font-size: .8rem; font-weight: 650; }
+.account-full-row { grid-column: 1 / -1; }
+.account-form input, .account-form textarea, .account-page button {
+  border: 1px solid #d6d9dc;
+  border-radius: .65rem;
+  padding: .55rem .7rem;
+  background: #fff;
+  color: #28384b;
+  font: inherit;
+}
+.account-form input, .account-form textarea { box-sizing: border-box; width: 100%; }
+.account-page button { width: fit-content; font-size: .85rem; font-weight: 650; }
