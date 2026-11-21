@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SubscriptionPlans from '../components/SubscriptionPlans/SubscriptionPlans'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../features/auth/authContext'
 import { saveProfile } from '../features/profile/profile'
@@ -73,6 +74,7 @@ export default function Settings() {
           </form>
         </section>
       )}
+      {result?.profile && <SubscriptionPlans key={id} initialTier={result.profile.subscription_tier} />}
       {error && <p role="alert">{error}</p>}
       {notice && <p role="status">{notice}</p>}
       <p><button type="button" onClick={signOut} disabled={Boolean(pending)}>Log out</button></p>

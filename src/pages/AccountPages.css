@@ -35,3 +35,5 @@
 }
 .account-form input, .account-form textarea { box-sizing: border-box; width: 100%; }
 .account-page button { width: fit-content; font-size: .85rem; font-weight: 650; }
+.subscription-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .75rem; }
+.subscription-panel button:disabled { opacity: .6; }
