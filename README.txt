@@ -1,0 +1,7 @@
+PlainSpeak consolidated update. Based on PlainSpeak-current.zip + PlainSpeak-social-feed.zip.
+1. Apply upgrade.sql in Supabase SQL Editor after existing community/media/promotions SQL.
+2. Back up src. Extract the ZIP into the project root. Do not overwrite unrelated local changes without comparing.
+3. npm run build; npm run dev. No additional dependencies.
+4. New signup creates a community profile through a trigger. After confirming email, professional submits proof through account settings (/profile). Existing users lacking community profile can finish setup there. Documents are private: professional-proof bucket. In Supabase Dashboard an administrator reviews the actual file and request; then SQL Editor: select public.ps_approve_professional('REQUEST_UUID'); only after actual credential review. After confirmed payment: select public.ps_activate_premium('USER_UUID', now()+interval '1 month'); manual activation only, no payment processing. Sponsors use existing admin-only sponsored flags. Do not enable premium for unverified users.
+5. Public profile is /community/USER_UUID; /profile remains account settings. Home is Community; /terms is Explore.
+Limitations: no live database/browser/build test; no payments or admin UI; edits cover text only; no photo/cover upload; no separate answers history tab; no new demo media. Feed queries are bounded as in previous version. Test on actual DB before presentation.
